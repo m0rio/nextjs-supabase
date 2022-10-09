@@ -1,5 +1,5 @@
 import { useQuery } from "react-query"
-import { Task } from "../types/types"
+import { Notice, Task } from "../types/types"
 import { supabase } from "../utils/supabase"
 
 export const useQueryNotices = () => {
@@ -14,7 +14,7 @@ export const useQueryNotices = () => {
     }
     return data
   }
-  return useQuery<Task[], Error>({
+  return useQuery<Notice[], Error>({
     queryKey: '[notices]',
     queryFn: getNotices,
     staleTime: 0,
