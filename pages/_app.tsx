@@ -43,14 +43,14 @@ const queryClient = new QueryClient({
     const validateSession = async () => {
       const user = supabase.auth.user()
       if (user && pathname === '/') {
-        push('/dashboard')
+        push('/contents')
       } else if (!user && pathname !== '/') {
         await push('/')
       }
     }
     supabase.auth.onAuthStateChange((event, _) => {
       if (event === 'SIGNED_IN' && pathname === '/') {
-        push('/dashboard')
+        push('/contents')
       }
       if (event === 'SIGNED_OUT') {
         push('/')

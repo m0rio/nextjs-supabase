@@ -8,6 +8,7 @@ import { TaskForm } from '../components/TaskForm'
 import { NoticeForm } from '../components/NoticeForm'
 import { NoticeList } from '../components/NoticeList'
 import { useQueryClient } from 'react-query'
+import { useRouter } from 'next/router'
 
 const Dashboard: NextPage = () => {
   const queryQlient = useQueryClient()
@@ -16,6 +17,7 @@ const Dashboard: NextPage = () => {
     queryQlient.removeQueries('todos')
     queryQlient.refetchQueries('notices')
   }
+  const router = useRouter()
   return (
     <Layout title='Dashboard'>
       <LogoutIcon 
